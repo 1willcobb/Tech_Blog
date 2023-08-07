@@ -8,6 +8,7 @@
 :root {
     --nav-color: rgb(255, 248, 213);
     --background: rgb(255, 248, 213);
+    --scale: ease all .2s;
 }
 
 .nav_bar {
@@ -15,12 +16,14 @@
     display: flex;
     justify-content: space-between;
     background-color: var(--nav-color);
+    transition: var(--scale);
 
 }
 
 .logo-box {
     margin: 10px;
     background-color: var(--nav-color);
+    transition: var(--scale);
 }
 
 .logo-box h1 {
@@ -29,6 +32,7 @@
     white-space: nowrap;
     box-shadow: 5px 5px 0px black;
     border-radius: 5px;
+    transition: var(--scale);
 }
 
 
@@ -37,7 +41,6 @@
     display: flex;
     align-items: center;
     margin-right: 5px;
-    
 }
 
 .nav_bar nav a {
@@ -47,6 +50,7 @@
     text-decoration: none;
     color:black;
     background-color: transparent;
+    transition: var(--scale);
 }
 
 main {
@@ -75,7 +79,7 @@ main {
         align-items: center;
     }
 
-    .nav_bar nav ul {
+    .nav_bar a {
         margin-bottom: 10px;
     }
 }
