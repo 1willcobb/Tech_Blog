@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -13,46 +14,56 @@
     display: flex;
     justify-content: space-between;
     background-color: var(--nav-color);
+
 }
 
-.nav_bar h1 {
-    background-color: var(--nav-color);
+.logo-box {
     margin: 10px;
+    background-color: var(--nav-color);
+}
+
+.logo-box h1 {
+    background-color: rgb(77, 190, 154);
     padding: 5px;
     white-space: nowrap;
-    box-shadow: 5px, 5px, 5px, 5px, black;
+    box-shadow: 5px 5px 0px black;
+    border-radius: 5px;
 }
+
 
 .nav_bar nav {
     background-color: var(--nav-color);
     display: flex;
     align-items: center;
     margin-right: 5px;
+    
 }
 
-.nav_bar nav ul {
-    background-color: var(--nav-color);
+.nav_bar nav a {
     display: flex;
     list-style: none;
-}
-
-.nav_bar nav ul li {
-    background-color: var(--nav-color);
     padding: 0 10px;
+    text-decoration: none;
+    color:black;
+    background-color: transparent;
 }
-
 
 main {
-    background-color: blueviolet;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 1rem;
 }
 
 .component {
-    color: white;
-    background-color: blueviolet;
+    width: 75%;
+    background-color: rgb(133, 133, 173);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 @media screen and (max-width: 480px) {

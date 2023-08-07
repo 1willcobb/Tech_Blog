@@ -3,7 +3,6 @@ const path = require('path')
 const express = require('express')
 const exphbs = require('express-handlebars')
 
-
 const sequelize = require('./config/connection')
 const routes = require('./controllers')
 
@@ -22,5 +21,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes)
 
 sequelize.sync({ force: false }).then(()=>{
-    app.listen(PORT, ()=>{console.log(`Now listening on ${PORT}`)})
-})
+    // Start the Express server inside the sequelize.sync callback
+    app.listen(PORT, ()=>{
+        console.log(`Now listening on ${PORT}`);
+    });
+});
