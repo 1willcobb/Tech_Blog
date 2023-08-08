@@ -1,19 +1,19 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        // Search for email in database
-        const userData = await User.findOne({
-            where: {
-                email: req.body.email
-            }
-        })
-        
-        //Continue here
-
-    } catch (error) {
-        console.log(error)
-        res.status(500).json(error)
-    }
+        const userData = await User.create(req.body);
+    
+        req.session.save(() => {
+          req.session.user_id = userData.id;
+          req.session.logged_in = true;
+    
+          res.status(200).json(userData);
+        });
+      } catch (err) {
+        res.status(400).json(err);
+      }
 })
+
+module.exports = router;
