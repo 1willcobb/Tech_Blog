@@ -16,4 +16,14 @@ router.post('/', async (req, res) => {
       }
 })
 
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(()=>{
+      res.status(204).send("Logged Out");
+    });
+  } else {
+    res.status(404).send("Something went wrong");
+  }
+});
+
 module.exports = router;
