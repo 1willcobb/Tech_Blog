@@ -10,6 +10,24 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/feed', async (req, res) => {
+    try {
+        res.render('/feed')
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error)
+    }
+})
+
+router.get('/login', async (req, res) => {
+    try {
+        res.render('/login')
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error)
+    }
+})
+
 
 
 module.exports = router;
