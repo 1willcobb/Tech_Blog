@@ -23,7 +23,7 @@ router.get("/feed", async (req, res) => {
 
 router.get("/login", async (req, res) => {
   try {
-    res.render("/login");
+    res.render("login");
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
