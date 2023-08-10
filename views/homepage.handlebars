@@ -2,7 +2,11 @@
     <div class="ts_text">
         <h2>tech.blog</h2>
         <p>Create a new blog post today</p>
-        <a class="nav_button" href=""><button>GET STARTED</button></a>
+        {{#if logged_in}}
+        <a class="nav_button" href="/feed"><button>DIVE IN</button></a>
+        {{else}}
+        <a class="nav_button" href="/login"><button>GET STARTED</button></a>
+        {{/if}}
     </div>
     <div class="component ts_feed">
         <h2>Top Posts</h2>
