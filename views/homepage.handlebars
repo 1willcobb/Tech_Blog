@@ -10,9 +10,11 @@
     </div>
     <div class="component ts_feed">
         <h2>Top Posts</h2>
-        {{> card }}
-        {{> card }}
-        {{> card }}
+        <ul style="list-style-type: none;">
+            {{#each blogs as |blog|}}
+            <li>{{> card_homepage }}</li>
+            {{/each}}
+        </ul>
     </div>
 </section>
 

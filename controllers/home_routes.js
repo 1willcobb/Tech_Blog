@@ -5,7 +5,22 @@ router.get('/', async (req, res) => {
   try {
     //TODO -> add algorithmic way to display top 3 posts OR change this view every 10 seconds?
 
+    const blogData = await Blog.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+      limit: 3,
+    });
+
+    const blogs = blogData.map((blog) => {
+      return blog.get({ plain: true });
+    });
+
     res.render('homepage', {
+      blogs,
       logged_in: req.session.logged_in,
     });
   } catch (error) {
