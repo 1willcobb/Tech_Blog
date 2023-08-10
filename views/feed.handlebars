@@ -1,4 +1,7 @@
-<section class="component ts_feed">
-    <h1>This is the feed</h1>
-    <ul id="blog_feed"></ul>
+<section class="ts_feed">
+    <ul id="blog_feed">
+        {{#each blogs as |blog|}}
+        <li>{{> card }}</li>
+        {{/each}}
+    </ul>
 </section>

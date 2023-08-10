@@ -1,9 +1,10 @@
 <section class="card glassy">
-    <div class="card_header">
-        <h2>title {{title}}</h2>
-        <p>posted by {{user}} on {{date}}</p>
-    </div>
-    <div class="card_body">
-        text here{{ text }}
-    </div>
+        <div class="card_header">
+            <h3>{{title}}</h3>
+            <p>posted by {{user.username}} on {{createdat}}</p>
+        </div>
+        <div class="card_body">
+            {{ text }}
+        </div>
+
 </section>
