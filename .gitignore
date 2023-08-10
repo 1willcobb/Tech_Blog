@@ -3,3 +3,7 @@ node_modules
 .DS_Store
 .AppleDouble
 .LSOverride
+.eslintignore
+.eslintrc.json
+.prettierignore
+.prettierrc.json
