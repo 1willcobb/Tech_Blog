@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
     //TODO -> add algorithmic way to display top 3 posts OR change this view every 10 seconds?
 
     res.render('homepage', {
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (error) {
     console.log(error);
@@ -17,7 +17,18 @@ router.get('/', async (req, res) => {
 router.get('/feed', async (req, res) => {
   try {
     res.render('feed', {
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+});
+
+router.get('/dashboard', async (req, res) => {
+  try {
+    res.render('dashboard', {
+      logged_in: req.session.logged_in,
     });
   } catch (error) {
     console.log(error);

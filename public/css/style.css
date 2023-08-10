@@ -127,10 +127,34 @@ main {
     padding: 20px;
 }
 
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5%;
+    width: 80%;
+    max-width: 1000px;
+    gap: 10px;
+}
+
 .card {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+}
+
+.card_header {
+    display: flex;
+    align-items: center;
+}
+
+.card_header p {
+    margin-left: auto;
+}
+
+.card_body {
+    backdrop-filter: blur(50px);
 }
 
 .center {
