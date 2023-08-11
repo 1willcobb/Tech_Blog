@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
         },
       ],
       limit: 3,
+      order: [['created_at', 'DESC']],
     });
 
     const blogs = blogData.map((blog) => {
@@ -38,6 +39,7 @@ router.get('/feed', async (req, res) => {
           attributes: ['username'],
         },
       ],
+      order: [['created_at', 'DESC']],
     });
 
     const blogs = blogData.map((blog) => {
@@ -66,9 +68,7 @@ router.get('/dashboard', async (req, res) => {
       where: {
         author_id: req.session.user_id,
       },
-      order: [
-        ['created_at', 'DESC']
-      ]
+      order: [['created_at', 'DESC']],
     });
 
     const blogs = blogData.map((blog) => {
