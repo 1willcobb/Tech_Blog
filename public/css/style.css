@@ -251,6 +251,31 @@ main {
     padding: 10px;
 }
 
+#new_blog_title {
+    background-color: var(--background);
+    width: 100%;
+    border: none;
+    padding: 5px;
+    height: 40px;
+}
+
+#new_blog_title::placeholder, input, select, textarea {
+    color:var(--inverse-font);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#new_blog_content {
+    color: var(--font-color);
+    width: 100%;
+    border: none;
+    height: 40px;
+}
+
+.glassy_textblock {
+    background-color: rgb(255, 255, 255, .3);
+    backdrop-filter: blur(5px);
+}
 
 
 @media screen and (min-width: 1980px){

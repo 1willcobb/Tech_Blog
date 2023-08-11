@@ -41,7 +41,7 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/feed');
     } else {
-      alter('Incorrect username or password');
+      alert('Incorrect username or password');
     }
   }
 };
