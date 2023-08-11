@@ -6,5 +6,15 @@
         <div class="card_body">
             {{ text }}
         </div>
-
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+                <button class="comment_button join_button nav_button" onclick="updateBlog({{id}})">Comment</button>
+            </div>
+            {{#if isOwner}}
+            <div style="display: flex; gap:5px;">
+                <button class="edit_button join_button nav_button" onclick="editBlog({{id}})">Edit</button>
+                <button class="update_button join_button nav_button" onclick="updateBlog({{id}})">Update</button>
+            </div>
+            {{/if}}
+        </div>
 </section>

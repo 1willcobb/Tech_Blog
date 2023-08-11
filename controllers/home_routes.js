@@ -46,8 +46,15 @@ router.get('/feed', async (req, res) => {
       return blog.get({ plain: true });
     });
 
+    const processedBlogs = blogs.map((blog) => {
+      return {
+        ...blog,
+        isOwner: blog.author_id === req.session.user_id,
+      };
+    });
+
     res.render('feed', {
-      blogs,
+      processedBlogs,
       logged_in: req.session.logged_in,
     });
   } catch (error) {
@@ -63,6 +70,7 @@ router.get('/dashboard', async (req, res) => {
         {
           model: User,
           attributes: ['username'],
+          exclude: ['password'],
         },
       ],
       where: {
@@ -75,10 +83,15 @@ router.get('/dashboard', async (req, res) => {
       return blog.get({ plain: true });
     });
 
-    console.log(blogs);
+    const processedBlogs = blogs.map((blog) => {
+      return {
+        ...blog,
+        isOwner: blog.author_id === req.session.user_id,
+      };
+    });
 
     res.render('dashboard', {
-      blogs,
+      processedBlogs,
       logged_in: req.session.logged_in,
     });
   } catch (error) {

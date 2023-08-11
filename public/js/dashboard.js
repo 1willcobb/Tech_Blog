@@ -1,6 +1,8 @@
 const newPostDashboard = document.querySelector('#new_post_dashboard');
-
 const new_post_card = document.querySelector('#new_post_card');
+const submitButton = document.querySelector('#submit_new_blog');
+
+
 
 newPostDashboard.addEventListener('click', () => {
   new_post_card.style.display = 'block';
@@ -31,6 +33,6 @@ const handleNewBlogSubmit = async (e) => {
   }
 };
 
-const submitButton = document.querySelector('#submit_new_blog');
+
 
 submitButton.addEventListener('click', handleNewBlogSubmit);

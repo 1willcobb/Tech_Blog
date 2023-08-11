@@ -1,7 +1,7 @@
 <section class="feed">
     <h2>Blog Feed</h2>
     <ul class="blog_feed">
-        {{#each blogs as |blog|}}
+        {{#each processedBlogs as |blog|}}
         <li>{{> card }}</li>
         {{/each}}
     </ul>

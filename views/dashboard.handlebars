@@ -3,7 +3,7 @@
     <button id="new_post_dashboard" class="nav_button join_button">New Post</button>
     <ul class="blog_feed">
     <li>{{> card_new}}</li>
-    {{#each blogs as |blog|}}
+    {{#each processedBlogs as |blog|}}
         <li>{{> card }}</li>
     {{/each}}
     </ul>

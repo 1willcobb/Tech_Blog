@@ -30,4 +30,20 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    /*const request = await Blog.update({
+      ...req.body,
+      id: req.body.params,
+    });
+
+    const updatedBlog = 
+*/
+    res.status(200).json({ message: 'success', updatedBlog });
+  } catch (error) {
+    console.error();
+    res.status(500).json({ message: 'server Error' });
+  }
+});
+
 module.exports = router;
