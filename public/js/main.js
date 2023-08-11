@@ -4,3 +4,4 @@ join.addEventListener('click', (e) => {
   e.preventDefault();
   console.log('hey');
 });
+

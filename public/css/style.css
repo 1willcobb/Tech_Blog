@@ -5,7 +5,6 @@
     background-color: var(--background);
     font-family: 'Libre Franklin', sans-serif;
     font-weight: 200;
-    color: var(--font-color);
 }
 
 :root {
@@ -13,13 +12,16 @@
     --background: transparent;
     --scale: ease all .2s;
     --font-color: rgb(105, 66, 29);
+    --inverse-font: rgb(255, 247, 238);
 }
 
 h1 {
+    color: var(--font-color);
     font-weight: 700;
 }
 
 h2 {
+    color: var(--font-color);
     font-size: 50px;
     font-weight: 600;
 }
@@ -30,8 +32,18 @@ h3 {
 }
 
 h4 {
-    font-size: 30px;
-    font-weight: 400;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+h5 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 15px;
+    font-weight: 300;
 }
 
 body {
@@ -39,6 +51,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 200vh;
+    color: var(--font-color);
 }
 
 .form {
@@ -78,6 +91,7 @@ body {
 }
 
 .nav_button {
+    color: var(--font-color);
     display: flex;
     list-style: none;
     padding: 0 10px;
@@ -101,7 +115,7 @@ body {
 
 .join_button {
     padding: 10px 20px;
-    background-color: rgb(255, 247, 238);
+    background-color: var(--inverse-font);
     border: none;
     font-weight: 700;
     text-decoration: none;
@@ -146,12 +160,15 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
 }
 
 .card_header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    color: white;
+    padding: 5px;
+    background-color: var(--font-color);
 }
 
 .card_header p {
@@ -159,8 +176,10 @@ main {
 }
 
 .card_body {
+    padding: 10px;
     backdrop-filter: blur(50px);
 }
+
 
 .center {
     display: flex;
@@ -199,10 +218,16 @@ main {
 }
 
 .ts_feed {
+    width: 75%;
     margin-right: 50px;
     display: flex;
     flex-direction: column;
     border: none;
+}
+
+.ts_feed li {
+    flex: 1;
+    margin: 2%;
 }
 
 .trending {
@@ -211,12 +236,20 @@ main {
     margin-top: 10px;
 }
 
-.blog_feed {
+.feed {
+    margin: 5%;
+
+}
+
+#blog_feed {
     display: flex;
+    list-style-type: none;
     flex-direction: column;
     border: none;
-    margin-top: 100px;
+    gap: 10px;
+    padding: 10px;
 }
+
 
 
 @media screen and (min-width: 1980px){
@@ -247,5 +280,10 @@ main {
 
     .ts_feed {
         margin-right: 0;
+    }
+
+    .card_header {
+        flex-direction: column;
+        text-align: center;
     }
 }

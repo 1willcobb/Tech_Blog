@@ -44,6 +44,8 @@ router.get('/feed', async (req, res) => {
       return blog.get({ plain: true });
     });
 
+    console.log(blogs);
+
     res.render('feed', {
       blogs,
       logged_in: req.session.logged_in,
