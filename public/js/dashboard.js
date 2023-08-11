@@ -1,12 +1,13 @@
 const newPostDashboard = document.querySelector('#new_post_dashboard');
 
+const new_post_card = document.querySelector('#new_post_card');
+
 newPostDashboard.addEventListener('click', () => {
-  console.log('new post clicked');
+  new_post_card.style.display = 'block';
 });
 
 const handleNewBlogSubmit = async (e) => {
   e.preventDefault();
-  console.log('blog submitted');
 
   const title = document.querySelector('#new_blog_title').value.trim();
   const text = document.querySelector('#new_blog_content').value.trim();
@@ -25,6 +26,9 @@ const handleNewBlogSubmit = async (e) => {
     if (!response.ok) {
       alert('Missing Fields');
     }
+
+    new_post_card.style.display = 'none';
+    window.location.reload();
   }
 };
 
