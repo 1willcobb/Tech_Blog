@@ -150,8 +150,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5%;
-    width: 80%;
+    margin: 0% 5%;
     max-width: 1000px;
     gap: 10px;
 }
@@ -237,11 +236,13 @@ main {
 }
 
 .feed {
-    margin: 5%;
-
+    margin: 0% 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-#blog_feed {
+.blog_feed {
     display: flex;
     list-style-type: none;
     flex-direction: column;

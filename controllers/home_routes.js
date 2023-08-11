@@ -44,8 +44,6 @@ router.get('/feed', async (req, res) => {
       return blog.get({ plain: true });
     });
 
-    console.log(blogs);
-
     res.render('feed', {
       blogs,
       logged_in: req.session.logged_in,
@@ -58,7 +56,27 @@ router.get('/feed', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
   try {
+
+    const blogData = await Blog.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+      where: {
+        author_id: req.session.user_id
+      }
+    });
+
+    const blogs = blogData.map((blog) => {
+      return blog.get({ plain: true });
+    });
+
+    console.log(blogs);
+
     res.render('dashboard', {
+      blogs,
       logged_in: req.session.logged_in,
     });
   } catch (error) {

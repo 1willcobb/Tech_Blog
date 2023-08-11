@@ -1,6 +1,11 @@
 <section class="dashboard">
-    
+    <h2>My Blogs</h2>
     <button id="new_post_dashboard" class="nav_button join_button">New Post</button>
-</section>
+    <ul class="blog_feed">
+    {{#each blogs as |blog|}}
+        <li>{{> card }}</li>
+    {{/each}}
+    </ul>
+</section> 
 
 <script src="./js/dashboard.js"></script>
