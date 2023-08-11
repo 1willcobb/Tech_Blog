@@ -56,7 +56,6 @@ router.get('/feed', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
   try {
-
     const blogData = await Blog.findAll({
       include: [
         {
@@ -65,8 +64,11 @@ router.get('/dashboard', async (req, res) => {
         },
       ],
       where: {
-        author_id: req.session.user_id
-      }
+        author_id: req.session.user_id,
+      },
+      order: [
+        ['created_at', 'DESC']
+      ]
     });
 
     const blogs = blogData.map((blog) => {

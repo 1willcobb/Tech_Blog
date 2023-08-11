@@ -11,24 +11,23 @@ const handleNewBlogSubmit = async (e) => {
 
   const title = document.querySelector('#new_blog_title').value.trim();
   const text = document.querySelector('#new_blog_content').value.trim();
-  const userDataElement = document.getElementById('user-data');
-  var author_id = userDataElement.getAttribute('data-user-id');
 
   if (title && text) {
     const response = await fetch('/api/blog', {
       method: 'POST',
-      body: JSON.stringify({ title, text, author_id }),
+      body: JSON.stringify({ title, text }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
-    if (!response.ok) {
-      alert('Missing Fields');
+    console.log(response);
+    if (response.ok) {
+      new_post_card.style.display = 'none';
+      window.location.reload();
+    } else {
+      alert('Failed to create project');
     }
-
-    new_post_card.style.display = 'none';
-    window.location.reload();
   }
 };
 
