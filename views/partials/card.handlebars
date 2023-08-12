@@ -1,20 +1,30 @@
 <section class="card glassy">
-        <div class="card_header">
-            <h4>{{title}}</h4>
-            <h6>posted by {{user.username}} on {{format_date createdAt}}</h6>
+    <div class="card_header">
+        <h4>{{title}}</h4>
+        <h6>posted by {{user.username}} on {{format_date createdAt}}</h6>
+    </div>
+    <div class="card_body">
+    {{#unless is_editing}}
+        {{ text }}
+    {{else}}
+        <textarea class="edit-textarea" rows="4">{{ text }}</textarea>
+    {{/unless}}
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+        <div>
+            <button class="comment-button join_button nav_button" data-action="comment" data-id="{{id}}">Comment</button>
         </div>
-        <div class="card_body">
-            {{ text }}
+
+        {{#if isOwner}}
+        <div style="display: flex; gap:5px;">
+            {{#unless is_editing}}
+                <button class="edit_button join_button nav_button" data-action="edit" data-id="{{id}}">Edit</button>
+                <button class="delete-button join_button nav_button" data-action="delete" data-id="{{id}}">Delete</button>
+            {{else}}
+                <button class="save_button join_button nav_button" data-action="save" data-id="{{id}}">Save</button>
+                <button class="cancel_button join_button nav_button" data-action="cancel" data-id="{{id}}">Cancel</button>
+            {{/unless}}
         </div>
-        <div style="display: flex; justify-content: space-between;">
-            <div>
-                <button class="comment_button join_button nav_button" onclick="updateBlog({{id}})">Comment</button>
-            </div>
-            {{#if isOwner}}
-            <div style="display: flex; gap:5px;">
-                <button class="edit_button join_button nav_button" onclick="editBlog({{id}})">Edit</button>
-                <button class="update_button join_button nav_button" onclick="updateBlog({{id}})">Delete</button>
-            </div>
-            {{/if}}
-        </div>
+        {{/if}}
+    </div>
 </section>

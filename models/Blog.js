@@ -19,6 +19,10 @@ Blog.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    is_editing: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
     author_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

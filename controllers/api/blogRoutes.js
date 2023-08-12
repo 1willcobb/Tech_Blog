@@ -32,14 +32,34 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    /*const request = await Blog.update({
-      ...req.body,
-      id: req.body.params,
+    const request = await Blog.update({
+      where: {
+        id: req.params.id,
+        author_id: req.session.user_id,
+      },
     });
 
-    const updatedBlog = 
-*/
     res.status(200).json({ message: 'success', updatedBlog });
+  } catch (error) {
+    console.error();
+    res.status(500).json({ message: 'server Error' });
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const request = await Blog.destroy({
+      where: {
+        id: req.params.id,
+        author_id: req.session.user_id,
+      },
+    });
+
+    if (!request) {
+      return res.status(400).json({ message: 'No blog Found.' });
+    }
+
+    res.status(200).json({ message: 'successfully destroyed', request });
   } catch (error) {
     console.error();
     res.status(500).json({ message: 'server Error' });
