@@ -1,3 +1,4 @@
+const express = require('express');
 const router = require('express').Router();
 const { Blog } = require('../../models');
 
@@ -32,14 +33,28 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const request = await Blog.update({
+    const { id } = req.params; // Get the ID from the URL parameter
+    const {user_id} = req.session; // Get the user ID from the session
+
+    console.log(id, user_id);
+    // Find the blog post to update
+    const blog = await Blog.findOne({
       where: {
-        id: req.params.id,
-        author_id: req.session.user_id,
+        id: id,
+        author_id: user_id,
       },
     });
 
-    res.status(200).json({ message: 'success', updatedBlog });
+    console.log(blog);
+
+    if (!blog) {
+      return res.status(404).json({ message: 'Blog post not found' });
+    }
+
+    // Update the blog post
+    await blog.update(req.body);
+
+    res.status(200).json({ message: 'success' });
   } catch (error) {
     console.error();
     res.status(500).json({ message: 'server Error' });

@@ -1,13 +1,18 @@
 <section class="card glassy">
-    <div class="card_header">
-        <h4>{{title}}</h4>
-        <h6>posted by {{user.username}} on {{format_date createdAt}}</h6>
-    </div>
-    <div class="card_body">
     {{#unless is_editing}}
-        {{ text }}
+        <div class="card_header">
+            <h4>{{title}}</h4>
+            <h6>posted by {{user.username}} on {{format_date createdAt}}</h6>
+        </div>
+        <div class="card_body">
+            {{ text }}
     {{else}}
-        <textarea class="edit-textarea" rows="4">{{ text }}</textarea>
+        <div class="card_header">
+            <input class="form-input" type="text" id="new_blog_title" placeholder="{{title}}" />
+        </div>
+        <div>
+            <textarea class="glassy_textblock" rows="4" type="textarea" id="new_blog_content" placeholder="NEW BLOG CONTENT">{{ text }}</textarea>
+        </div>
     {{/unless}}
     </div>
     <div style="display: flex; justify-content: space-between;">
