@@ -8,10 +8,10 @@
             {{ text }}
     {{else}}
         <div class="card_header">
-            <input class="form-input" type="text" id="new_blog_title" placeholder="{{title}}" />
+            <input class="form-input" type="text" id="new_blog_title" value={{text}} />
         </div>
         <div>
-            <textarea class="glassy_textblock" rows="4" type="textarea" id="new_blog_content" placeholder="NEW BLOG CONTENT">{{ text }}</textarea>
+            <textarea class="glassy_textblock" rows="10" type="textarea" id="new_blog_content">{{ text }}</textarea>
         </div>
     {{/unless}}
     </div>

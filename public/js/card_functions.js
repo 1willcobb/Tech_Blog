@@ -1,8 +1,7 @@
 const container = document.querySelector('.blog_feed');
-const save_button = document.querySelector('.save_button');
 
-const deleteBlog = async (id) => {
-  console.log('update Blog Function ' + id);
+const deleteBlog = async (id, target) => {
+  console.log('update Blog Function... ' + id);
 
   const response = await fetch(`/api/blog/${id}`, {
     method: 'DELETE',
@@ -12,12 +11,16 @@ const deleteBlog = async (id) => {
     },
   });
 
-  if (!response.ok) {
+  if (response.ok) {
+    target.closest('.card').remove();
+  } else {
     return console.log('nothing to delete');
   }
 };
 
-const OpenEditor = async (id) => {
+const openEditor = async (id) => {
+  console.log('editing...');
+
   await fetch(`/api/blog/${id}`, {
     method: 'PUT',
     body: JSON.stringify({ is_editing: true }),
@@ -25,50 +28,48 @@ const OpenEditor = async (id) => {
       'Content-Type': 'application/json',
     },
   });
+
+  location.reload();
 };
 
 //TODO THIS ISNT WORKING YET. ALSO SAVE ONLY WORKS ON THE TOP ONE>
-const handleUpdateSubmit = async (e, target, id) => {
-  e.preventDefault();
-
-  const title = document.querySelector('#new_blog_title').value.trim();
-  const text = document.querySelector('#new_blog_content').value.trim();
+const handleUpdateSubmit = async (id, title, text) => {
+  console.log('saving...');
 
   if (title && text) {
-    const response = await fetch(`/api/blog/:${id}`, {
+    const response = await fetch(`/api/blog/${id}`, {
       method: 'PUT',
-      body: JSON.stringify({ title, text }),
+      body: JSON.stringify({ title, text, is_editing: false }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-      new_post_card.style.display = 'none';
-      target.closest('.card').remove();
+      location.reload();
     } else {
-      alert('Failed to create project');
+      alert('Failed to update');
     }
   }
 };
-
-save_button.addEventListener('click', () => {
-  console.log('save');
-});
 
 // Attach event listener for button clicks
 container.addEventListener('click', async (event) => {
   const target = event.target;
   const action = target.getAttribute('data-action');
   const blogId = target.getAttribute('data-id');
+  // Get the title and text from the clicked card
+
 
   if (action === 'delete') {
-    await deleteBlog(blogId);
-    // After successful deletion, you can remove the corresponding card from the UI
-    target.closest('.card').remove();
+    deleteBlog(blogId, target);
   } else if (action === 'edit') {
-    console.log('editing');
-    await OpenEditor(blogId);
+    openEditor(blogId);
+  } else if (action === 'save') {
+    const card = target.closest('.card'); // Find the closest parent with the .card class
+    const title = card.querySelector('#new_blog_title').value.trim();
+    const text = card.querySelector('#new_blog_content').value.trim();
+    handleUpdateSubmit(blogId, title, text);
   }
 
   // Handle other button clicks (e.g., comment, edit) similarly
