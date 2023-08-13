@@ -1,0 +1,152 @@
+[
+  {
+    "text": "I found this JavaScript introduction really helpful!",
+    "author_id": 1,
+    "blog_id": 1
+  },
+  {
+    "text": "Node.js seems like a game-changer for server-side development.",
+    "author_id": 2,
+    "blog_id": 2
+  },
+  {
+    "text": "Web development trends are fascinating to follow.",
+    "author_id": 3,
+    "blog_id": 3
+  },
+  {
+    "text": "React components have made my UI development more efficient.",
+    "author_id": 1,
+    "blog_id": 4
+  },
+  {
+    "text": "Data privacy is a top concern in the digital age.",
+    "author_id": 4,
+    "blog_id": 5
+  },
+  {
+    "text": "Mastering CSS Grid Layout has improved my layout skills.",
+    "author_id": 2,
+    "blog_id": 6
+  },
+  {
+    "text": "Backend technologies play a crucial role in application development.",
+    "author_id": 3,
+    "blog_id": 7
+  },
+  {
+    "text": "AI in healthcare is a promising field with numerous applications.",
+    "author_id": 1,
+    "blog_id": 8
+  },
+  {
+    "text": "The future of e-commerce looks exciting with new technologies.",
+    "author_id": 4,
+    "blog_id": 9
+  },
+  {
+    "text": "Creating engaging user experiences is essential for user satisfaction.",
+    "author_id": 1,
+    "blog_id": 10
+  },
+  {
+    "text": "JavaScript is the backbone of web development.",
+    "author_id": 3,
+    "blog_id": 1
+  },
+  {
+    "text": "Node.js has made server-side programming easier.",
+    "author_id": 1,
+    "blog_id": 2
+  },
+  {
+    "text": "Web development trends are shaping the future of the internet.",
+    "author_id": 2,
+    "blog_id": 3
+  },
+  {
+    "text": "React components make UI building a breeze.",
+    "author_id": 3,
+    "blog_id": 4
+  },
+  {
+    "text": "Data privacy is a critical concern in today's digital world.",
+    "author_id": 4,
+    "blog_id": 5
+  },
+  {
+    "text": "CSS Grid Layout allows for creative web layouts.",
+    "author_id": 1,
+    "blog_id": 6
+  },
+  {
+    "text": "Backend technologies drive the functionality of applications.",
+    "author_id": 2,
+    "blog_id": 7
+  },
+  {
+    "text": "AI's impact on healthcare is remarkable.",
+    "author_id": 3,
+    "blog_id": 8
+  },
+  {
+    "text": "E-commerce is evolving rapidly with technology.",
+    "author_id": 4,
+    "blog_id": 9
+  },
+  {
+    "text": "Creating user-centered designs is a rewarding challenge.",
+    "author_id": 1,
+    "blog_id": 10
+  },
+  {
+    "text": "JavaScript's versatility makes it a must-learn language.",
+    "author_id": 2,
+    "blog_id": 1
+  },
+  {
+    "text": "Node.js has simplified backend development for me.",
+    "author_id": 3,
+    "blog_id": 2
+  },
+  {
+    "text": "Web development trends influence the way we build websites.",
+    "author_id": 4,
+    "blog_id": 3
+  },
+  {
+    "text": "React's component-based architecture is revolutionary.",
+    "author_id": 1,
+    "blog_id": 4
+  },
+  {
+    "text": "Protecting user data is a shared responsibility.",
+    "author_id": 2,
+    "blog_id": 5
+  },
+  {
+    "text": "CSS Grid Layout empowers me to create dynamic designs.",
+    "author_id": 3,
+    "blog_id": 6
+  },
+  {
+    "text": "Choosing the right backend tech stack is vital.",
+    "author_id": 4,
+    "blog_id": 7
+  },
+  {
+    "text": "AI's potential to transform healthcare is awe-inspiring.",
+    "author_id": 1,
+    "blog_id": 8
+  },
+  {
+    "text": "E-commerce is adapting to changing consumer behaviors.",
+    "author_id": 2,
+    "blog_id": 9
+  },
+  {
+    "text": "User experiences can make or break a product.",
+    "author_id": 3,
+    "blog_id": 10
+  }
+]

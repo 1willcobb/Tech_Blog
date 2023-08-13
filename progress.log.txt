@@ -8,3 +8,11 @@ Keep track of where I was the last time I was working on the project
         - working on cancel button first. 
         - SAVE BUTTON WORKING
         - now working on cancel button
+
+        - all button except comment document        
+            - model and index needed DONE
+           
+            - seeds needed DONE
+
+
+             - new api route LAST LEFT OFF
