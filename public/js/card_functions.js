@@ -53,13 +53,26 @@ const handleUpdateSubmit = async (id, title, text) => {
   }
 };
 
+const handleCancel = async (id) => {
+  console.log('editing...');
+
+  await fetch(`/api/blog/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify({ is_editing: false }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  location.reload();
+};
+
 // Attach event listener for button clicks
 container.addEventListener('click', async (event) => {
   const target = event.target;
   const action = target.getAttribute('data-action');
   const blogId = target.getAttribute('data-id');
   // Get the title and text from the clicked card
-
 
   if (action === 'delete') {
     deleteBlog(blogId, target);
@@ -70,7 +83,7 @@ container.addEventListener('click', async (event) => {
     const title = card.querySelector('#new_blog_title').value.trim();
     const text = card.querySelector('#new_blog_content').value.trim();
     handleUpdateSubmit(blogId, title, text);
+  } else if (action === 'cancel') {
+    handleCancel(blogId);
   }
-
-  // Handle other button clicks (e.g., comment, edit) similarly
 });
