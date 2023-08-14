@@ -32,7 +32,6 @@ const openEditor = async (id) => {
   location.reload();
 };
 
-//TODO THIS ISNT WORKING YET. ALSO SAVE ONLY WORKS ON THE TOP ONE>
 const handleUpdateSubmit = async (id, title, text) => {
   console.log('saving...');
 
@@ -67,23 +66,64 @@ const handleCancel = async (id) => {
   location.reload();
 };
 
-// Attach event listener for button clicks
+const openComments = async (id, commentList) => {
+  console.log('opening comments for blog id: ', id);
+  commentList.innerHTML = '';
+
+  const response = await fetch(`/api/blog/${id}/comments`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const commentsData = await response.json(); // Parse JSON response
+
+  const length = commentsData.comments.length;
+
+  if (length <= 0) {
+    commentList.innerHTML = 'No Comments Yet';
+  }
+
+  for (let i = 0; i < commentsData.comments.length; i++) {
+    commentList.innerHTML += `
+    <li style="width: 100%; display: flex; justify-content: space-between; margin: 10px 0px;">
+      <div>
+        ${commentsData.comments[i].text}
+      </div>
+      <div>
+        ${commentsData.comments[i].user.username} on ${dayjs(commentsData.comments[i].createdAt).format('MM/DD/YYYY')}
+      </div
+    </li>`;
+  }
+};
+
+// Attach event listener to entire card
 container.addEventListener('click', async (event) => {
   const target = event.target;
   const action = target.getAttribute('data-action');
   const blogId = target.getAttribute('data-id');
-  // Get the title and text from the clicked card
+  const card = target.closest('.card'); // Find the closest parent with the .card class
 
   if (action === 'delete') {
     deleteBlog(blogId, target);
   } else if (action === 'edit') {
     openEditor(blogId);
   } else if (action === 'save') {
-    const card = target.closest('.card'); // Find the closest parent with the .card class
     const title = card.querySelector('#new_blog_title').value.trim();
     const text = card.querySelector('#new_blog_content').value.trim();
     handleUpdateSubmit(blogId, title, text);
   } else if (action === 'cancel') {
     handleCancel(blogId);
+  } else if (action === 'comments') {
+    const commentState = target.getAttribute('data-state');
+    const commentList = card.querySelector('#comment_list');
+    if (commentState === 'closed') {
+      target.setAttribute('data-state', 'open');
+      openComments(blogId, commentList);
+    } else {
+      console.log('closed');
+      target.setAttribute('data-state', 'closed');
+    }
   }
 });

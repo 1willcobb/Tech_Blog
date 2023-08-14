@@ -17,7 +17,7 @@
     </div>
     <div style="display: flex; justify-content: space-between;">
         <div>
-            <button class="comment-button join_button nav_button" data-action="comment" data-id="{{id}}">Comment</button>
+            <button class="comment-button join_button nav_button" data-action="comments" data-id="{{id}}" data-state="closed">Comments</button>
         </div>
 
         {{#if isOwner}}
@@ -31,5 +31,9 @@
             {{/unless}}
         </div>
         {{/if}}
+    </div>
+    <div id="comments_section" class="glassy" style="display: flex;">
+        <ul id="comment_list" style="list-style-type: none; width: 100%">
+        </ul>
     </div>
 </section>
