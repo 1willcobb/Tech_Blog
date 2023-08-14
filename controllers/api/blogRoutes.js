@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Blog, Comment, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findAll();
 
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const new_blog = await Blog.create({
       ...req.body,
@@ -30,7 +31,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     const { id } = req.params; // Get the ID from the URL parameter
     const { user_id } = req.session; // Get the user ID from the session
@@ -60,7 +61,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const request = await Blog.destroy({
       where: {
@@ -80,7 +81,7 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-router.get('/:id/comments', async (req, res) => {
+router.get('/:id/comments', withAuth, async (req, res) => {
   try {
     const request = await Comment.findAll({
       where: {

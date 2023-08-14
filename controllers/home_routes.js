@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { User, Blog } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     //TODO -> add algorithmic way to display top 3 posts OR change this view every 10 seconds?
 
@@ -30,7 +31,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/feed', async (req, res) => {
+router.get('/feed', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findAll({
       include: [
@@ -63,7 +64,7 @@ router.get('/feed', async (req, res) => {
   }
 });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findAll({
       include: [

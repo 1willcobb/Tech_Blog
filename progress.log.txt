@@ -2,7 +2,7 @@ Progress Log:
 
 Keep track of where I was the last time I was working on the project
 
-7/17 - ** Note Edit button works but does, cancel does not work to take back. nore does save or comment. 
+7/13 - ** Note Edit button works but does, cancel does not work to take back. nore does save or comment. 
                 edit does not refredsh 
             edit button could find  away to size the text box big enough to fit the text. 
         - working on cancel button first. 
@@ -16,3 +16,6 @@ Keep track of where I was the last time I was working on the project
 
 
              - new api route LAST LEFT OFF
+                - done
+
+7/14   ** need readme, launch to heroku, and withAuth
