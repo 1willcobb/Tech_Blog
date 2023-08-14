@@ -2,10 +2,10 @@
     <h2>My Blogs</h2>
     <button id="new_post_dashboard" class="nav_button join_button">New Post</button>
     <ul class="blog_feed">
-    <li>{{> card_new}}</li>
-    {{#each processedBlogs as |blog|}}
-        <li>{{> card }}</li>
-    {{/each}}
+        <li>{{> card_new}}</li>
+        {{#each processedBlogs as |blog|}}
+            <li>{{> card }}</li>
+        {{/each}}
     </ul>
     
 </section> 

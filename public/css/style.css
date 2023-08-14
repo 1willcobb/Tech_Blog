@@ -224,6 +224,7 @@ main {
     margin-right: 50px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     border: none;
 }
 
@@ -252,6 +253,7 @@ main {
     border: none;
     gap: 10px;
     padding: 10px;
+    width: 80vw;
 }
 
 #new_blog_title {
@@ -315,6 +317,9 @@ textarea {
     }
 
     .ts_feed {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         margin-right: 0;
     }
 
