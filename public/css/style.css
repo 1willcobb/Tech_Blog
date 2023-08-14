@@ -59,6 +59,9 @@ body {
     grid-template-columns: 1fr 3fr;
 }
 
+.form-input {
+    color:  rgb(105, 66, 29);
+}
 
 
 .nav_bar {
@@ -275,6 +278,13 @@ main {
 .glassy_textblock {
     background-color: rgb(255, 255, 255, .3);
     backdrop-filter: blur(5px);
+}
+
+textarea {
+    width:100%; 
+    margin: 5px 0px; 
+    color: var(--font-color);
+    border: none;
 }
 
 
