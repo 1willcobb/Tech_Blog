@@ -52,6 +52,10 @@ body {
     background-attachment: fixed;
     background-size: 200vh;
     color: var(--font-color);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .form {
