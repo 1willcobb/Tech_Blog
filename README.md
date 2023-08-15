@@ -4,7 +4,8 @@ A blogging/forum style app using node.js, express, handlebars, and mysql/sequeli
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![Sample]()
+[App Live Here](https://tech-blog-1willcobb-830bce22bbd8.herokuapp.com/)
+(Hosted w/ heroku eco-dinos, alow a few seconds to spin up)
 
 ## Description 
 
@@ -58,7 +59,10 @@ Open your browser to localhost:3001
 
 ## Demo
 
-[Demo Video Here]()
+![demo](/public/images/tech_blog.gif)
+![demo1](/public/images/demo_1.png)
+![demo2](/public/images/demo_2.png)
+![demo3](/public/images/demo_3.png)
 
 
 ## Contributions
