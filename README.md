@@ -66,7 +66,7 @@ Open your browser to localhost:3001
 
 
 ## Contributions
-  You are welcome to contribute!
+  You are welcome to contribute! I look forward to hearing from you
 
 ## Questions
   Please reach out to me if you have any questions about the functionality of the app or installation
